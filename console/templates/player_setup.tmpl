@@ -1,0 +1,7 @@
+{{ define "player_setup" -}}
+  Welcome to Tic-Tac-Go(lang).
+
+  {{ range .Players -}}
+    Player {{ .PlayerNumber }}: {{ .PlayerType }} {{ colorize .ColorValue .Token }}
+  {{ end }}
+{{- end }}

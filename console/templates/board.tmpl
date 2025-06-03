@@ -1,0 +1,10 @@
+{{ define "board" -}}
+  {{ range $rowIndex, $row := .Board }}
+    {{ range $columnIndex, $cell := $row -}}
+      {{""}} {{ colorizeBold $cell.ColorValue $cell.Token}} {{ if lt $columnIndex (dec $.BoardDimension) }}|{{ end }}
+    {{- end -}}
+    {{- if lt $rowIndex (dec $.BoardDimension) }}
+    {{ range (repeat (dec (mult $.BoardDimension 4))) }}-{{ end }}
+    {{- end -}}
+  {{ end }}
+{{- end }}

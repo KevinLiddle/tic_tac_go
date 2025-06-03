@@ -232,7 +232,7 @@ func TestGetWinner(t *testing.T) {
 					}
 				}
 			}
-			assert.Equal(t, w.expected, GetWinner(board).Token)
+			assert.Equal(t, w.expected, board.GetWinner().Token)
 		})
 	}
 }

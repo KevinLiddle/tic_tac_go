@@ -1,0 +1,8 @@
+{{ define "selection_prompt" -}}
+  {{ range $i, $value := .Choices }}
+    {{ inc $i }}) {{ $value }}
+  {{- end }}
+
+  {{ with .Error -}}{{ . }}{{- end }}
+  {{ .Prompt }}{{ " " }}
+{{- end }}

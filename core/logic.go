@@ -53,15 +53,18 @@ func (b Board) Size() int {
 	return len(b) * len(b)
 }
 
-func NewBoard(dimension int) Board {
-	board := make([][]Player, dimension)
-	for i := 0; i < dimension; i++ {
-		board[i] = make([]Player, dimension)
+func (b Board) IsFull() bool {
+	for _, row := range b {
+		for _, cell := range row {
+			if cell.IsEmpty() {
+				return false
+			}
+		}
 	}
-	return board
+	return true
 }
 
-func GetWinner(board Board) Player {
+func (board Board) GetWinner() Player {
 	var diag1 []Player
 	var diag2 []Player
 
@@ -90,6 +93,14 @@ func GetWinner(board Board) Player {
 		}
 	}
 	return Player{}
+}
+
+func NewBoard(dimension int) Board {
+	board := make([][]Player, dimension)
+	for i := 0; i < dimension; i++ {
+		board[i] = make([]Player, dimension)
+	}
+	return board
 }
 
 func getWinnerFromLine(line []Player) Player {

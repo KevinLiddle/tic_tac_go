@@ -1,0 +1,11 @@
+{{ define "end_game_selection" -}}
+{{ template "board" . }}
+
+{{ if .Winner -}}
+{{ colorize .Winner.ColorValue .Winner.Token }} Wins!
+{{- else -}}
+Cat's Game...       (ノಠ益ಠ)ノ彡┻━┻
+{{- end }}
+
+{{ template "selection_prompt" . }}
+{{- end }}

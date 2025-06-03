@@ -1,0 +1,6 @@
+{{ define "text_prompt" -}}
+  {{ with .Error }}
+  {{ . }}
+  {{ end }}
+  {{ .Prompt }}
+{{- end }}
